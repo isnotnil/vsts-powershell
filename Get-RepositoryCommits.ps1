@@ -11,7 +11,8 @@ param (
 )
 
 class Commit {
-    [string]$Author
+    [string]$AuthorName
+    [string]$AuthorEmail
     [string]$RepositoryName
     [string]$CommitId
     [DateTime]$Date
@@ -60,7 +61,8 @@ $response.value | ForEach-Object {
 
         $response.value | ForEach-Object {
             $commit = [Commit]::new()
-            $commit.Author = $_.author.name
+            $commit.AuthorName = $_.author.name
+            $commit.AuthorEmail = $_.authoer.email
             $commit.RepositoryName = $repositoryName
             $commit.CommitId = $_.commitId
             $commit.Date = $_.author.Date
