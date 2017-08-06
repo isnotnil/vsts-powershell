@@ -67,12 +67,14 @@ ScriptsToProcess = @()
 
 # Modules to import as nested modules of the module specified in RootModule/ModuleToProcess
 NestedModules = @(
-    'Get-VstsRepositoryCommits.psm1'
+    'Get-VstsRepositoryCommits.psm1',
+    'ConvertTo-VstsAuthorizationHeader.psm1'
 )
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
 FunctionsToExport = @(
-    'Get-VstsRepositoryCommits'
+    'Get-VstsRepositoryCommits',
+    'ConvertTo-VstsAuthorizationHeader'
 )
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.

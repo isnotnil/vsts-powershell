@@ -27,10 +27,7 @@ function Get-VstsRepositoryCommits {
 
     $allRepositoriesApiUrl = "https://$InstanceName.visualstudio.com/DefaultCollection/$ProjectName/_apis/git/repositories/?api-version=1.0"
 
-    $vstsAuthType = "Basic"
-    $vstsBasicAuthBase64String = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes("$($vstsAuthType):$PersonalAccessToken"))
-    $vstsBasicAuthHeader = "$vstsAuthType $vstsBasicAuthBase64String"
-    $requestHeaders = @{Authorization = "$vstsBasicAuthHeader"}
+    $requestHeaders = ConvertTo-VstsAuthorizationHeader -PersonalAccessToken $PersonalAccessToken
 
     $response = Invoke-RestMethod `
         -Method Get `
